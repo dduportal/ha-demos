@@ -7,4 +7,6 @@ ENV GOPATH /golang
 
 RUN go get github.com/jwilder/docker-gen
 
+WORKDIR ~
+
 CMD ["/golang/bin/docker-gen","-v"]
