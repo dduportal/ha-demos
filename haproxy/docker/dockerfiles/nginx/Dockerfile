@@ -17,4 +17,3 @@ VOLUME /var/log/nginx
 VOLUME /etc/nginx
 
 CMD ["nginx","-c","/etc/nginx/nginx.conf"]
-
