@@ -16,4 +16,5 @@ EXPOSE 80
 VOLUME /var/log/nginx
 VOLUME /etc/nginx
 
-CMD nginx -c /etc/nginx/nginx.conf
+CMD ["nginx","-c","/etc/nginx/nginx.conf"]
+

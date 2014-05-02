@@ -1,0 +1,94 @@
+[{
+    "ID": "c9b2fd082523c45e2a00ed126ea831e92cf74acce754836edac972b208168dc9",
+    "Created": "2014-05-01T19:20:39.260188924Z",
+    "Path": "/bin/sh",
+    "Args": [
+        "-c",
+        "nginx -c /etc/nginx/nginx.conf"
+    ],
+    "Config": {
+        "Hostname": "c9b2fd082523",
+        "Domainname": "",
+        "User": "",
+        "Memory": 0,
+        "MemorySwap": 0,
+        "CpuShares": 0,
+        "AttachStdin": false,
+        "AttachStdout": false,
+        "AttachStderr": false,
+        "PortSpecs": null,
+        "ExposedPorts": {
+            "80/tcp": {}
+        },
+        "Tty": false,
+        "OpenStdin": false,
+        "StdinOnce": false,
+        "Env": [
+            "HOME=/",
+            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        ],
+        "Cmd": [
+            "/bin/sh",
+            "-c",
+            "nginx -c /etc/nginx/nginx.conf"
+        ],
+        "Image": "jessie-nginx",
+        "Volumes": {
+            "/etc/nginx": {},
+            "/var/log/nginx": {}
+        },
+        "WorkingDir": "",
+        "Entrypoint": null,
+        "NetworkDisabled": false,
+        "OnBuild": null
+    },
+    "State": {
+        "Running": true,
+        "Pid": 13536,
+        "ExitCode": 0,
+        "StartedAt": "2014-05-01T19:20:39.268635128Z",
+        "FinishedAt": "0001-01-01T00:00:00Z",
+        "Ghost": false
+    },
+    "Image": "272b2b53b3398a5e184ef993c771a1b63ca0602aec3c5d4b9518b4449f36b366",
+    "NetworkSettings": {
+        "IPAddress": "172.17.0.4",
+        "IPPrefixLen": 16,
+        "Gateway": "172.17.42.1",
+        "Bridge": "docker0",
+        "PortMapping": null,
+        "Ports": {
+            "80/tcp": null
+        }
+    },
+    "ResolvConfPath": "/var/lib/docker/containers/c9b2fd082523c45e2a00ed126ea831e92cf74acce754836edac972b208168dc9/resolv.conf",
+    "HostnamePath": "/var/lib/docker/containers/c9b2fd082523c45e2a00ed126ea831e92cf74acce754836edac972b208168dc9/hostname",
+    "HostsPath": "/var/lib/docker/containers/c9b2fd082523c45e2a00ed126ea831e92cf74acce754836edac972b208168dc9/hosts",
+    "Name": "/prickly_brattain",
+    "Driver": "aufs",
+    "ExecDriver": "native-0.1",
+    "Volumes": {
+        "/etc/nginx": "/home/dadou/workspaces/ha/ha-demos/haproxy/docker/dockerfiles/nginx/nginx-conf",
+        "/var/log/nginx": "/var/lib/docker/vfs/dir/23fb64f58507c329b3b018494b51f738d8041bdbe6945d8384069dfd210a03dc"
+    },
+    "VolumesRW": {
+        "/etc/nginx": false,
+        "/var/log/nginx": true
+    },
+    "HostConfig": {
+        "Binds": [
+            "/home/dadou/workspaces/ha/ha-demos/haproxy/docker/dockerfiles/nginx/nginx-conf:/etc/nginx:ro"
+        ],
+        "ContainerIDFile": "",
+        "LxcConf": [],
+        "Privileged": false,
+        "PortBindings": {
+            "80/tcp": null
+        },
+        "Links": null,
+        "PublishAllPorts": false,
+        "Dns": null,
+        "DnsSearch": null,
+        "VolumesFrom": null
+    }
+}]
