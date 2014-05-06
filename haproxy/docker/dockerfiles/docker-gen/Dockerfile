@@ -1,10 +1,15 @@
-FROM juju-nginx
+FROM debian:jessie
+MAINTAINER damien.duportal@gmail.com
 
-RUN apt-get install -y golang git
+ENV DOCKERGEN_VERSION 0.1.2
 
-WORKDIR /golang
-ENV GOPATH /golang
+RUN apt-get update && apt-get install -y wget
 
-RUN go get github.com/jwilder/docker-gen
+ADD test.tmpl /app/
 
-CMD ["/golang/bin/docker-gen","-v"]
+WORKDIR /usr/local/bin
+RUN wget https://github.com/jwilder/docker-gen/releases/download/${DOCKERGEN_VERSION}/docker-gen-linux-amd64-${DOCKERGEN_VERSION}.tar.gz -O dockergen.tgz
+RUN tar xzf dockergen.tgz && rm -f dockergen.tgz
+
+WORKDIR /app
+
