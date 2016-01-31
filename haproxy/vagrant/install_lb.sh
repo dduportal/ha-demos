@@ -3,7 +3,7 @@
 ### Adding backports repository
 echo "== Cheking and installing all missing stuff"
 sed -i '/backports/d' /etc/apt/sources.list
-echo "deb http://ftp.debian.org/debian/ wheezy-backports main" >> /etc/apt/sources.list
+echo "deb http://ftp.debian.org/debian/ jessie-backports main" >> /etc/apt/sources.list
 apt-get update
 
 ### Install all needed tools
@@ -42,7 +42,7 @@ EOF
 
 ### Configure HAProxy
 echo "== Configurint HA Proxy"
-sed -i 's/ENABLED=./ENABLED=1/g' /etc/default/haproxy 
+sed -i 's/ENABLED=./ENABLED=1/g' /etc/default/haproxy
 cat > /etc/haproxy/haproxy.cfg << EOF
 global
         log /dev/log    local0
@@ -94,4 +94,3 @@ sysctl -p
 echo "== Startin' services"
 service haproxy start
 service keepalived start
-

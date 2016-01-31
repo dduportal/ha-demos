@@ -5,7 +5,7 @@
 Vagrant.configure("2") do |config|
 
   config.vm.define "lb1" do |lb1|
-    lb1.vm.box = "chef/debian-7.4"
+    lb1.vm.box = "debian/jessie64"
 
     lb1.vm.provision "shell", path: "install_lb.sh"
 
@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "lb2" do |lb2|
-    lb2.vm.box = "chef/debian-7.4"
+    lb2.vm.box = "debian/jessie64"
 
     lb2.vm.provision "shell", path: "install_lb.sh"
 
@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "ngx1" do |ngx1|
-    ngx1.vm.box = "chef/debian-7.4"
+    ngx1.vm.box = "debian/jessie64"
 
     ngx1.vm.provision "shell", path: "install_nginx.sh"
 
@@ -29,11 +29,10 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "ngx2" do |ngx2|
-    ngx2.vm.box = "chef/debian-7.4"
+    ngx2.vm.box = "debian/jessie64"
 
     ngx2.vm.provision "shell", path: "install_nginx.sh"
 
     ngx2.vm.network "private_network", ip: "192.168.0.22"
   end
 end
-

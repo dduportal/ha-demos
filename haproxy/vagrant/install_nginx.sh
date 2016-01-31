@@ -3,8 +3,8 @@
 # Installing stuff
 echo "== Checkin' and installin' some needed stuff"
 sed -i '/nginx/d' /etc/apt/sources.list
-echo "deb http://nginx.org/packages/debian/ wheezy nginx" >> /etc/apt/sources.list
-echo "deb-src http://nginx.org/packages/debian/ wheezy nginx" >> /etc/apt/sources.list
+echo "deb http://nginx.org/packages/debian/ jessie nginx" >> /etc/apt/sources.list
+echo "deb-src http://nginx.org/packages/debian/ jessie nginx" >> /etc/apt/sources.list
 
 cd /tmp
 sudo wget http://nginx.org/keys/nginx_signing.key
@@ -35,4 +35,3 @@ My IP is $MY_SERVICE_IP
 </body>
 </html>
 EOF
-
