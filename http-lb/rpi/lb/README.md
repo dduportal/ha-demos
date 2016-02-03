@@ -42,12 +42,14 @@
         option forwardfor
         option httpchk HEAD /check.txt HTTP/1.0
         server webA <IPA>:80 cookie A check
-        server webB <IPB>:80 cookie B check*
+        server webB <IPB>:80 cookie B check
     ```
   * Then enable and start the service :
    ```
    systemctl enable haproxy
    systemctl start haproxy
+   # Optional : check logs 
+   journalctl -u haproxy
    ```
 * Then configure keepalived on each node :
  * Edit/create the file ```/etc/keepalived/keepalived.conf``` (tune values "<VRID>", "<KEEPALIVE_PRIORITY>", "<VIRTUAL_IP>") :
