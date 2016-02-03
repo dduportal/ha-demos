@@ -44,9 +44,10 @@
         server webA <IPA>:80 cookie A check
         server webB <IPB>:80 cookie B check*
     ```
-    * Then enable and start the service :
-      ```
-      systemctl enable haproxy
-      systemctl start haproxy
-      ```
-    
+  * Then enable and start the service :
+   ```
+   systemctl enable haproxy
+   systemctl start haproxy
+   ```
+* Then configure keepalived on each node :
+ * AA 
