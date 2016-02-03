@@ -55,7 +55,7 @@
  * Edit/create the file ```/etc/keepalived/keepalived.conf``` (tune values "<VRID>", "<KEEPALIVE_PRIORITY>", "<VIRTUAL_IP>") :
    ```
    vrrp_script chk_haproxy {
-        script "killall -0 haproxy"     # cheaper than pidof
+        script "pidof haproxy"
         interval 2
         weight 2
    }
