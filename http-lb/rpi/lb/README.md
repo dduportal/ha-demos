@@ -6,7 +6,7 @@
 
 * Then configure haproxy load balancer on each node :
   * In ```/etc/default/haproxy```, please check that "ENABLED" has the value "1"
-  * Create/edit the main configuration in ```/etc/haproxy/haproxy.cfg``` :
+  * Create/edit the main configuration in ```/etc/haproxy/haproxy.cfg``` (adapting values of <IPA> and <IPB> and their ports) :
     ```
     global
         log /dev/log    local0
@@ -16,7 +16,7 @@
         group haproxy
         daemon
 
-defaults
+    defaults
         log     global
         mode    http
         option  httplog
@@ -32,17 +32,21 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-listen webfarm *:80
-       mode http
-       stats enable
-       stats auth user:pass
-       balance roundrobin
-       cookie SERVERID insert
-       option http-server-close
-       option forwardfor
-       option httpchk HEAD /check.txt HTTP/1.0
-       server webA 192.168.0.21:80 cookie A check
-       server webB 192.168.0.22:80 cookie B check*
+    listen webfarm *:80
+        mode http
+        stats enable
+        stats auth user:pass
+        balance roundrobin
+        cookie SERVERID insert
+        option http-server-close
+        option forwardfor
+        option httpchk HEAD /check.txt HTTP/1.0
+        server webA <IPA>:80 cookie A check
+        server webB <IPB>:80 cookie B check*
     ```
-    * Then
+    * Then enable and start the service :
+      ```
+      systemctl enable haproxy
+      systemctl start haproxy
+      ```
     
