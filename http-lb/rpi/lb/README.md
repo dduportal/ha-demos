@@ -50,4 +50,23 @@
    systemctl start haproxy
    ```
 * Then configure keepalived on each node :
- * AA 
+ * Edit/create the file ```/etc/keepalived/keepalived.conf``` (tune values "<VRID>", "<KEEPALIVE_PRIORITY>", "<VIRTUAL_IP>") :
+   ```
+   vrrp_script chk_haproxy {
+   	script "killall -0 haproxy"     # cheaper than pidof
+   	interval 2
+   	weight 2
+   }
+   
+   vrrp_instance VI_1 {
+   	interface eth1
+   	state MASTER
+    virtual_router_id <VRID>
+   	priority <KEEPALIVE_PRIORITY> # 100 on master, 101 on slave
+   	virtual_ipaddress {
+   	  <VIRTUAL_IP>
+    }
+    track_script {
+     chk_haproxy
+    }
+   }
