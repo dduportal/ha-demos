@@ -61,15 +61,15 @@
    }
    
    vrrp_instance VI_1 {
-        interface eth1
+        interface <interface(eth1)>
         state MASTER
-        virtual_router_id <VRID>
-        priority <KEEPALIVE_PRIORITY> # 100 on master, 101 on slave
+        virtual_router_id <VRID(51)>
+        priority <KEEPALIVE_PRIORITY(100)> # 100 on master, 101 on slave
         virtual_ipaddress {
-                <VIRTUAL_IP>
+                <VIRTUAL_IP(0.0.0.0)>
         }
         track_script {
-        chk_haproxy
+            chk_haproxy
         }
    }
    ```
